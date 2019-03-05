@@ -1,0 +1,215 @@
+
+ <script type="text/ng-template" id="searchTemplate.html">  
+    <a class="search-temp">
+             <div class="media">                    
+                    <div class="media-body">
+                        <h4 class="media-heading">[[match.model.productName]] (Rs [[match.model.mrp]])</h4>
+                    </div>                            
+              </div>
+    </a>          
+</script>
+
+<div id="content">
+      <div id="main" ng-style="{'background-image':'url([[vm.imgUrl]])'}">
+         <div class="main  container-fluid">
+            <br><br>
+            <div class="row">
+               <h1 class="text-center hh1 col-md-10 col-md-offset-1">Store Name</h1>
+            </div>
+            
+            <br>
+            <div class="row">
+               <h2 class="text-center hh1 col-md-10 col-md-offset-1">Some dummy text!</h2>
+            </div>
+            <br>
+            <br>
+         </div>
+      </div>
+      <br>
+
+    
+
+      <div class="container-fluid" >
+         <div class="row cart-body">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <!--REVIEW ORDER-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h3 class="panel-title text-white"><span class="glyphicon glyphicon-shopping-cart"></span> Product Summary</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row" ng-repeat="product in vm.products">
+                                <div class="col-sm-2 col-xs-2">
+                                    <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg" />
+                                </div>
+                                <div class="col-sm-6 col-xs-6">
+                                    <div class="col-xs-12">[[product.productName]]</div>
+                                    <!-- <div class="col-xs-12"><small>Quantity:<span>[[product.quantity]]</span></small></div> -->
+                                    <div class="col-xs-12"><small>MRP:<span>[[product.mrp]]</span></small></div>
+                                </div>
+                                <div class="col-sm-4 col-xs-4 text-right">
+                                    <div class="row">
+                                       <div class="form-group col-xs-3">
+                                       <!-- <span class="input-group-btn"> -->
+                                           <button type="button" class="btn btn-default btn-number  btn-circle btn-sm btn-danger" ng-disabled="product.quantity == 0" data-type="minus" ng-click="vm.sub(product)">
+                                               <span class="glyphicon glyphicon-minus"></span>
+                                           </button>
+                                       <!-- </span> -->
+                                       </div>
+                                       <div class="form-group col-xs-6 text-center">
+                                       <input type="text" name="quantity" ng-model="product.quantity" class="form-control input-number input-sm"  min="1" ng-change="vm.onQtyChange(product)">
+                                       </div>
+                                       <div class="form-group col-xs-3">
+                                       <!-- <span class="input-group-btn"> -->
+                                          <button type="button" class="btn btn-default btn-number  btn-circle btn-sm btn-info" data-type="plus" ng-click="vm.add(product)">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                          </button>
+                                       <!-- </span> -->
+                                       </div>
+                                   </div>
+
+                                </div>
+                                <div class="clearfix"></div>
+                                <hr>
+                            </div>
+                            
+                            <div class="row">
+                              <div class="col-md-4 col-md-offset-4">
+                                <button ui-sref="app.store({id: vm.storeId})" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add More</button>
+                              </div>
+                            </div>
+                        <!-- </div>
+                        <div class="panel-footer">   -->  
+                           <!--  <div class="row">
+                                <div class="col-xs-12">
+                                    <strong>Subtotal</strong>
+                                    <div class="pull-right"><span>$</span><span>200.00</span></div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <small>Shipping</small>
+                                    <div class="pull-right"><span>-</span></div>
+                                </div>
+                            </div> -->
+                            <div class="row"><hr /></div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <strong>Order Value</strong>
+                                    <div class="pull-right"><span>Rs </span><span>[[vm.orderTotal]]</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--REVIEW ORDER END-->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <!--SHIPPING METHOD-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <span class="panel-title text-white">Delivery Address</span>
+                          <a style="cursor: pointer;" class="pull-right text-white" ng-click="vm.enableEditor()">Edit Address</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row" ng-hide="vm.editorEnabled">
+                              <div class="col-md-4">
+                                <address>
+                                  <strong>[[vm.deliveryAddress.first_name + ' '+vm.deliveryAddress.last_name]]</strong><br>
+                                  [[vm.deliveryAddress.addressLineOne]]<br>
+                                  [[vm.deliveryAddress.addressLineTwo]]<br>
+                                  [[vm.deliveryAddress.city]], [[vm.deliveryAddress.state]] [[vm.deliveryAddress.pincode]]<br>
+                                  <abbr title="Phone">P:</abbr> [[vm.deliveryAddress.phone]]
+                                </address>
+
+                                <address>
+                                  <strong>Email</strong><br>
+                                  <a href="mailto:#">[[vm.deliveryAddress.email]]</a>
+                                </address>
+                              </div>
+                            </div>  
+                            
+                            <div class="address-form" ng-show="vm.editorEnabled">
+                              <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-6 col-xs-12">
+                                        <strong>First Name:</strong>
+                                        <input type="text" name="first_name" class="form-control" ng-model='vm.deliveryAddress.first_name' />
+                                    </div>
+                                    <div class="span1"></div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <strong>Last Name:</strong>
+                                        <input type="text" name="last_name" class="form-control" ng-model='vm.deliveryAddress.last_name' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Address Line One:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="address" class="form-control" ng-model='vm.deliveryAddress.addressLineOne' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Address Line Two:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="address" class="form-control" ng-model='vm.deliveryAddress.addressLineTwo' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>City:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="city" class="form-control" ng-model='vm.deliveryAddress.city' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>State:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="state" class="form-control" ng-model='vm.deliveryAddress.state' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="zip_code" class="form-control" ng-model='vm.deliveryAddress.pincode' />
+                                    </div>
+                                </div>                              
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Phone Number:</strong></div>
+                                    <div class="col-md-12"><input type="text" name="phone_number" class="form-control" ng-model='vm.deliveryAddress.phone' /></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Email Address:</strong></div>
+                                    <div class="col-md-12"><input type="email" name="email_address" class="form-control" ng-model='vm.deliveryAddress.email' /></div>
+                                </div>
+                              </div>  
+                              <br>
+                              <div class="row">
+                                 <div class="form-group">
+                                   <div class="col-md-12">
+                                      <button ng-click="vm.save()" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-file"></span> Save</button>
+                                   </div>   
+                                </div>
+                              </div>  
+                            </div>  
+                            <hr>
+                            <div class="row">
+                              <div class="col-md-4 col-md-offset-4">
+                                <button  ng-click="vm.order()" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Order</button>
+                              </div>
+                            </div>
+                             <hr>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <p>*Expected Time for Delivery: [[vm.deliverTime | date: 'dd MMM yyyy' ]]</p>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--SHIPPING METHOD END-->
+                   
+                </div>
+                
+            </div>
+
+
+
+      </div>
+      <br>
+      
+</div>

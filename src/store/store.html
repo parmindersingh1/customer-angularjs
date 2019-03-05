@@ -1,0 +1,106 @@
+
+ <script type="text/ng-template" id="searchTemplate.html">  
+    <a class="search-temp">
+             <div class="media">                    
+                    <div class="media-body">
+                        <h4 class="media-heading">[[match.model.productName]] (Rs [[match.model.mrp]])</h4>
+                    </div>                            
+              </div>
+    </a>          
+</script>
+
+<div id="content">
+      <div id="main" ng-style="{'background-image':'url([[vm.imgUrl]])'}">
+         <div class="main  container-fluid">
+            <br><br>
+            <div class="row">
+               <h1 class="text-center hh1 col-md-10 col-md-offset-1">Some Text Here</h1>
+            </div>
+            <br>
+            <div class="row">
+               <p class="col-md-6 col-md-offset-3" id="stip" style="display: block;">
+                  <i class="icon-lightbulb icon-large"></i> <b>TIP</b> - Works best with 2-3  keywords separated by <b>space</b>, e.g. "name mesh"
+               </p>
+               <div class="input-group input-group-lg col-md-6 col-md-offset-3">
+                  <input id="sinpt" autofocus=""  type="text" class="form-control" ng-model="vm.searchProduct" placeholder="Search by Product Name"
+                  uib-typeahead="product as product.productName for product in vm.products" 
+                  typeahead-loading="loadingLocations" typeahead-no-results="noResults"
+                  typeahead-on-select="vm.onProductSelect(vm.searchProduct)"              typeahead-min-length="1" typeahead-template-url="searchTemplate.html">
+                  <span class="input-group-btn">
+                  <button id="sbtn" class="btn btn-info" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+                  </button> </span>
+               </div>
+            </div>
+            <br>
+            <div class="row">
+               <h2 class="text-center hh1 col-md-10 col-md-offset-1">Some dummy text!</h2>
+            </div>
+            <br>
+            <br>
+         </div>
+      </div>
+      <br>
+
+    
+
+      <div class="container-fluid" >
+         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+               <div class="panel panel-success">
+                 <!--  <div class="panel-heading">
+                     <h3 class="panel-title text-center text-white">Cart</h3>
+                  </div> -->
+                  <div class="panel-body">
+                     <table class="table">
+                        <thead>
+                           <tr class="bg-primary">
+                              <th>Product Name</th>
+                              <th align="right" class="text-center">Quantity</th>
+                           </tr>   
+                        </thead>
+                        <tbody>
+                           <tr ng-repeat="product in vm.selectedProducts" ng-init="product.quantity = (product.quantity)? product.quantity: 0" ng-if="vm.selectedProducts.length > 0">
+                              <td width="75%">[[product.productName]] &nbsp;&nbsp;Rs [[product.mrp]]</td>
+                              <td>
+                                 <div class="row">
+                                     <div class="form-group col-xs-3">
+                                     <!-- <span class="input-group-btn"> -->
+                                         <button type="button" class="btn btn-default btn-number  btn-circle btn-sm btn-danger" ng-disabled="product.quantity == 0" data-type="minus" ng-click="vm.sub(product)">
+                                             <span class="glyphicon glyphicon-minus"></span>
+                                         </button>
+                                     <!-- </span> -->
+                                     </div>
+                                     <div class="form-group col-xs-6 text-center">
+                                     <input type="text" name="quantity" ng-model="product.quantity" class="form-control input-number input-sm"  min="0" ng-change="vm.onQtyChange(product)">
+                                     </div>
+                                     <div class="form-group col-xs-3">
+                                     <!-- <span class="input-group-btn"> -->
+                                        <button type="button" class="btn btn-default btn-number  btn-circle btn-sm btn-info" data-type="plus" ng-click="vm.add(product)">
+                                          <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                     <!-- </span> -->
+                                     </div>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr ng-if="vm.selectedProducts.length == 0">
+                              <td colspan="2" class="text-center">
+                                 No Product Selected
+                              </td>
+                           </tr>
+                        </tbody>
+
+                     </table>
+                     <button id="sbtn" class="btn btn-info pull-right" type="button" ng-if="vm.showCheckout" ng-click="vm.checkout()">
+                        <i class="glyphicon glyphicon-ok"></i> Checkout
+                     </button> </span>
+                  </div>
+               </div>
+               <br>              
+            </div>           
+         </div>
+      </div>
+      <br>
+      
+</div>

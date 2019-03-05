@@ -1,0 +1,250 @@
+
+  <!-- content push wrapper -->
+  <div class="st-pusher">
+
+    <!-- this is the wrapper for the content -->
+    <div class="st-content">
+
+      <!-- extra div for emulating position:fixed of the menu -->
+      <div class="st-content-inner padding-top-none" id="content" data-scrollable>
+
+        <div ng-hide="$state.is('discover.listing-map')">
+          <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="toggle pull-right margin-none visible-xs" data-toggle="collapse" href="#navbar"><i class="fa fa-sliders fa-rotate-90"></i></a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left-m">
+
+                  <li ng-class="{ 'active': $state.is('discover.listing') }"><a ui-sref="discover.listing"><i class="fa fa-list fa-fw"></i> List</a></li>
+                  <li ng-class="{ 'active': $state.is('discover.listing-grid') }"><a ui-sref="discover.listing-grid"><i class="fa fa-th fa-fw"></i> Grid</a></li>
+                  <li ng-class="{ 'active': $state.is('discover.listing-map') }"><a ui-sref="discover.listing-map"><i class="fa fa-map-marker fa-fw"></i> Map</a></li>
+
+                </ul>
+                <div class="navbar-right">
+                  <div class="navbar-text">Sort by:</div>
+                  <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Date Added <span class="caret"></span>
+                            <span class="sr-only">(current)</span>
+                        </a>
+                      <ul class="dropdown-menu">
+                        <li class="active"><a href="#">Latest</a></li>
+                        <li><a href="#">Oldest</a></li>
+                        <li><a href="#">Price - ASC</a></li>
+                        <li><a href="#">Price - DESC</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="container-fluid">
+
+          <h1 class="text-h3">Properties</h1>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media media-clearfix-xs media-clearfix-sm">
+                <div class="media-left">
+                  <p>
+                    <a ui-sref="property.property">
+                      <img src="images/photodune-378874-real-estate-xs.jpg" alt="property" width="150" class="media-object" />
+                    </a>
+                  </p>
+                  <div class="text-center small">
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <div class="pull-right">
+                    <a ui-sref="property.property" class="text-primary"><i class="fa fa-comments fa-fw"></i> <strong>5</strong></a>
+                    <a ui-sref="property.property" class="text-grey-400"><i class="fa fa-star-o fa-fw"></i></a>
+                  </div>
+                  <h4 class="media-heading margin-v-0-10">
+                    <a ui-sref="property.property">Property Name</a>
+                    <small class="text-grey-400"><i class="fa fa-clock-o fa-fw"></i> 5 days ago</small>
+                  </h4>
+                  <p>
+                    <span class="label label-grey-100"><i class="fa fa-home fa-fw"></i>3 Bedrooms</span>
+                    <span class="label label-grey-100"><i class="fa fa-fw icon icon-toilet"></i> 1 Bathrooms</span>
+                    <span class="label label-grey-100"><i class="icon icon-shovel "></i> Garden</span>
+                  </p>
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet consectetur cupiditate, dolor ducimus eos error, iste modi nulla provident quisquam sapiente sint vero? Ab commodi id quibusdam recusandae veniam!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media media-clearfix-xs media-clearfix-sm">
+                <div class="media-left">
+                  <p>
+                    <a ui-sref="property.property">
+                      <img src="images/photodune-195203-houses-xs.jpg" alt="property" width="150" class="media-object" />
+                    </a>
+                  </p>
+                  <div class="text-center small">
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <div class="pull-right">
+                    <a ui-sref="property.property" class="text-primary"><i class="fa fa-comments fa-fw"></i> <strong>5</strong></a>
+                    <a ui-sref="property.property" class="text-grey-400"><i class="fa fa-star-o fa-fw"></i></a>
+                  </div>
+                  <h4 class="media-heading margin-v-0-10">
+                    <a ui-sref="property.property">Property Name</a>
+                    <small class="text-grey-400"><i class="fa fa-clock-o fa-fw"></i> 5 days ago</small>
+                  </h4>
+                  <p>
+                    <span class="label label-grey-100"><i class="fa fa-home fa-fw"></i>3 Bedrooms</span>
+                    <span class="label label-grey-100"><i class="fa fa-fw icon icon-toilet"></i> 1 Bathrooms</span>
+                    <span class="label label-grey-100"><i class="icon icon-shovel "></i> Garden</span>
+                  </p>
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet consectetur cupiditate, dolor ducimus eos error, iste modi nulla provident quisquam sapiente sint vero? Ab commodi id quibusdam recusandae veniam!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media media-clearfix-xs media-clearfix-sm">
+                <div class="media-left">
+                  <p>
+                    <a ui-sref="property.property">
+                      <img src="images/photodune-196089-house-xs.jpg" alt="property" width="150" class="media-object" />
+                    </a>
+                  </p>
+                  <div class="text-center small">
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <div class="pull-right">
+                    <a ui-sref="property.property" class="text-primary"><i class="fa fa-comments fa-fw"></i> <strong>5</strong></a>
+                    <a ui-sref="property.property" class="text-grey-400"><i class="fa fa-star-o fa-fw"></i></a>
+                  </div>
+                  <h4 class="media-heading margin-v-0-10">
+                    <a ui-sref="property.property">Property Name</a>
+                    <small class="text-grey-400"><i class="fa fa-clock-o fa-fw"></i> 5 days ago</small>
+                  </h4>
+                  <p>
+                    <span class="label label-grey-100"><i class="fa fa-home fa-fw"></i>3 Bedrooms</span>
+                    <span class="label label-grey-100"><i class="fa fa-fw icon icon-toilet"></i> 1 Bathrooms</span>
+                    <span class="label label-grey-100"><i class="icon icon-shovel "></i> Garden</span>
+                  </p>
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet consectetur cupiditate, dolor ducimus eos error, iste modi nulla provident quisquam sapiente sint vero? Ab commodi id quibusdam recusandae veniam!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media media-clearfix-xs media-clearfix-sm">
+                <div class="media-left">
+                  <p>
+                    <a ui-sref="property.property">
+                      <img src="images/photodune-197173-residential-home-xs.jpg" alt="property" width="150" class="media-object" />
+                    </a>
+                  </p>
+                  <div class="text-center small">
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <div class="pull-right">
+                    <a ui-sref="property.property" class="text-primary"><i class="fa fa-comments fa-fw"></i> <strong>5</strong></a>
+                    <a ui-sref="property.property" class="text-grey-400"><i class="fa fa-star-o fa-fw"></i></a>
+                  </div>
+                  <h4 class="media-heading margin-v-0-10">
+                    <a ui-sref="property.property">Property Name</a>
+                    <small class="text-grey-400"><i class="fa fa-clock-o fa-fw"></i> 5 days ago</small>
+                  </h4>
+                  <p>
+                    <span class="label label-grey-100"><i class="fa fa-home fa-fw"></i>3 Bedrooms</span>
+                    <span class="label label-grey-100"><i class="fa fa-fw icon icon-toilet"></i> 1 Bathrooms</span>
+                    <span class="label label-grey-100"><i class="icon icon-shovel "></i> Garden</span>
+                  </p>
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet consectetur cupiditate, dolor ducimus eos error, iste modi nulla provident quisquam sapiente sint vero? Ab commodi id quibusdam recusandae veniam!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media media-clearfix-xs media-clearfix-sm">
+                <div class="media-left">
+                  <p>
+                    <a ui-sref="property.property">
+                      <img src="images/photodune-3979102-superb-backyard-xs.jpg" alt="property" width="150" class="media-object" />
+                    </a>
+                  </p>
+                  <div class="text-center small">
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                    <span class="fa fa-fw fa-star-o text-yellow-800"></span>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <div class="pull-right">
+                    <a ui-sref="property.property" class="text-primary"><i class="fa fa-comments fa-fw"></i> <strong>5</strong></a>
+                    <a ui-sref="property.property" class="text-grey-400"><i class="fa fa-star-o fa-fw"></i></a>
+                  </div>
+                  <h4 class="media-heading margin-v-0-10">
+                    <a ui-sref="property.property">Property Name</a>
+                    <small class="text-grey-400"><i class="fa fa-clock-o fa-fw"></i> 5 days ago</small>
+                  </h4>
+                  <p>
+                    <span class="label label-grey-100"><i class="fa fa-home fa-fw"></i>3 Bedrooms</span>
+                    <span class="label label-grey-100"><i class="fa fa-fw icon icon-toilet"></i> 1 Bathrooms</span>
+                    <span class="label label-grey-100"><i class="icon icon-shovel "></i> Garden</span>
+                  </p>
+                  <p class="margin-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid amet consectetur cupiditate, dolor ducimus eos error, iste modi nulla provident quisquam sapiente sint vero? Ab commodi id quibusdam recusandae veniam!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="pagination margin-top-none">
+            <li class="disabled"><a href="#">&laquo;</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+      <!-- /st-content-inner -->
+
+    </div>
+    <!-- /st-content -->
+
+  </div>
+  <!-- /st-pusher -->
+

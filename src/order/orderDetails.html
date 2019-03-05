@@ -1,0 +1,105 @@
+<div class="page-section">
+	<div class="container" >
+
+		<div class="w3-panel w3-info">
+
+			<div class="row">    		
+			    <div class="col-xs-12 col-md-12">		
+					<h3>Order  Details</h3>	
+				</div>					
+				<div class="col-xs-6 col-md-6">
+					<p>Ordered on [[vm.order.orderDate | date: 'dd MMMM yy']] | Order # [[vm.order.orderId]]<p>
+				</div>
+		        <div class="col-xs-2 col-md-push-4 ">
+		    	    <p>
+		    	    	<button ng-click="vm.reOrder()" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Reorder</button>
+		    	    	<button class="btn btn-sm btn-info"><span class="glyphicon glyphicon-file"></span> Invoice</button>
+		    	    </p>
+		        </div>
+			</div>
+		</div>	
+
+		 <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h3 class="panel-title text-white"><span class="glyphicon glyphicon-gift"></span> Order summary</h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <div class="row">
+                            	<div class="col-md-8">
+                                <address>
+                                  <strong>Shipping Address</strong><br>
+                                  [[vm.order.deliveryAddress.first_name + ' '+vm.order.deliveryAddress.last_name]]<br>
+                                  [[vm.order.deliveryAddress.addressLineOne]]<br>
+                                  [[vm.order.deliveryAddress.addressLineTwo]]<br>
+                                  [[vm.order.deliveryAddress.city]], [[vm.order.deliveryAddress.state]] [[vm.order.deliveryAddress.pincode]]<br>
+                                  <abbr title="Phone">P:</abbr> [[vm.order.deliveryAddress.phone]]
+                                </address>
+
+                                <address>
+                                  <strong>Email</strong><br>
+                                  <a href="mailto:#">[[vm.order.deliveryAddress.email]]</a>
+                                </address>
+                              </div>     
+                              <div class="col-md-4">   
+                                  <strong class="pull-right">Order Summary</strong><br><br>
+
+                                  	<table width='0' border='0' align='right' cellpadding='0' cellspacing='0'>
+										<tbody>											
+											<tr>
+												<td align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;'>
+													<strong>Item(s) Subtotal:</strong>
+												</td>
+												<td width='62' align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;'>
+													[[vm.order.subtotal]]
+												</td>
+											</tr>
+											<tr>
+												<td align='left' valign='bottom' style='color:#404041;font-size:13px;line-height:16px;padding:5px 0px 3px 0px'>
+													<strong>Grand Total:</strong>
+												</td>
+												<td width='62' align='right' valign='bottom' style='color:#339933;font-size:13px;line-height:16px;padding:5px 5px 3px 5px'>
+													<strong>[[vm.order.totalAmount]]</strong>
+												</td>
+											</tr>
+										</tbody>
+										
+										
+									</table>
+                              </div>                 
+                            </div>                     
+                          
+                        
+                           
+                        </div>
+                    </div>
+
+		<div class="panel panel-primary">
+	        <div class="panel-heading">
+	          <h3 class="panel-title">[[vm.order.lineItems.length]] Items</h3>
+	        </div>
+	        <div class="panel-body">				
+				 <div class="row" ng-repeat="product in vm.order.lineItems">
+				 	<div class="col-xs-12 col-md-12">
+				        <div class="col-sm-2 col-xs-2">
+				            <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg" />
+				        </div>
+				        <div class="col-sm-8 col-xs-8">
+				            <div class="col-xs-12">[[product.productName]]</div>
+				            <div class="col-xs-12"><small>MRP: <span>[[product.mrp]]</span></small></div>
+				            
+				        </div>
+				        <div class="col-sm-2 col-xs-2 ">
+				        	<p>QTY: &nbsp;&nbsp; <span>[[product.quantity]]</span></p>
+				            
+				        </div>
+				    </div>    
+			        <div class="clearfix"></div>
+			        <hr>
+			    </div>
+			</div>
+		</div>
+
+
+	</div>	
+</div>

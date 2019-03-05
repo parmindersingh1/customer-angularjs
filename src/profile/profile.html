@@ -1,0 +1,166 @@
+<div class="page-section">
+	<div class="container" >
+
+		<div class="w3-panel w3-info">
+
+			<div class="row">    
+				<div class="col-xs-6 col-md-6">
+					<h3>Your Profile</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <!--REVIEW ORDER-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h3 class="panel-title text-white"><span class="glyphicon glyphicon-user"></span>  Personal Details</h3>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <div class="row">
+                            	<div class="form-group">
+                                    <div class="col-md-6 col-xs-12">
+                                        <strong>First Name:</strong>
+                                        <input type="text" name="first_name" class="form-control" ng-model='vm.user.first_name' />
+                                    </div>
+                                    <div class="span1"></div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <strong>Last Name:</strong>
+                                        <input type="text" name="last_name" class="form-control" ng-model='vm.user.last_name' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Phone Number:</strong></div>
+                                    <div class="col-md-12"><input type="text" name="phone_number" class="form-control" ng-model='vm.user.mobile' /></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Email Address:</strong></div>
+                                    <div class="col-md-12"><input type="email" name="email_address" class="form-control" ng-model='vm.user.email' /></div>
+                                </div>                               
+                            </div>
+                            <br>
+                          <div class="row">
+                             <div class="form-group">
+                               <div class="col-md-12">
+                                  <button ng-click="vm.save()" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-file"></span> Save</button>
+                               </div>   
+                            </div>
+                          </div>  
+                            
+                              <br>
+                          <div class="row">
+                             <div class="form-group">
+                               <div class="col-md-12 text-center">
+                                  <button  class="btn btn-primary"  data-toggle="modal" data-target="#cpModal"><span class="glyphicon glyphicon-pencil"></span> Change Password</button>
+                               </div>   
+                            </div>
+                          </div>  
+                        
+                           
+                        </div>
+                    </div>
+                    <!--REVIEW ORDER END-->
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <!--SHIPPING METHOD-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h3 class="panel-title text-white"><span class="glyphicon glyphicon-flag"></span>  Address Details</h3>
+                        </div>
+                        <div class="panel-body">
+                                                       
+                            <div class="address-form">
+                              <div class="row">
+                                
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Address Line One:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="address" class="form-control" ng-model='vm.user.address.addrressLineOne' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Address Line Two:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="address" class="form-control" ng-model='vm.user.address.addrressLineTwo' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>City:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="city" class="form-control" ng-model='vm.user.address.city' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>State:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="state" class="form-control" ng-model='vm.user.address.state' />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="zip_code" class="form-control" ng-model='vm.user.address.pincode' />
+                                    </div>
+                                </div>                              
+                                
+                              </div>  
+                              <br>
+                              <div class="row">
+                                 <div class="form-group">
+                                   <div class="col-md-12">
+                                      <button ng-click="vm.save()" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-file"></span> Save</button>
+                                   </div>   
+                                </div>
+                              </div>  
+                            </div>  
+                            
+                        </div>
+                    </div>
+                    <!--SHIPPING METHOD END-->
+                   
+                </div>
+                
+            </div>
+
+
+
+	</div>
+</div>	
+
+<!-- Modal -->
+<div id="cpModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Password</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" action="" method="post" class="registration-form ng-pristine ng-valid">
+            <div class="form-group">
+                <label for="form-first-name">Old Password</label>
+                <input type="password" name="form-first-name" placeholder="Old Password" class="form-first-name form-control" id="form-first-name">
+            </div>
+            <div class="form-group">
+                <label for="form-last-name">New Password</label>
+                <input type="password" name="form-last-name" placeholder="New Password" class="form-last-name form-control" id="form-last-name">
+            </div>
+            <div class="form-group">
+                <label for="form-email">Confirm Password</label>
+                <input type="password" name="form-email" placeholder="Confirm Password" class="form-email form-control" id="form-email">
+            </div>
+            
+            
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" ng-click="vm.changePassword()" class="btn btn-primary">Change Password</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

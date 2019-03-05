@@ -1,0 +1,116 @@
+<div class="page-section">
+	<div class="container" >
+
+		<div class="w3-panel w3-info">
+
+			<div class="row">    
+				<div class="col-xs-6 col-md-6">
+					<h3>Your Orders</h3>
+				</div>
+
+		        <div class="col-xs-4 col-md-push-2">
+		    	    <div class="input-group">	                       
+		                <input type="text" class="form-control search-box" name="x" placeholder="Search Order" ng-model="vm.search">
+		                <span class="input-group-btn">
+		                    <button class="btn btn-info search-box" type="button"><span class="glyphicon glyphicon-search"></span></button>
+		                </span>
+		            </div>
+		        </div>
+			</div>
+		</div>	
+
+		<div class="row">    
+	        <div class="col-xs-12">
+
+				<ul class="nav nav-tabs">
+				  <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true" ng-click="vm.tabChange('all')">Orders</a></li>
+				  <li class=""><a href="#open" data-toggle="tab" aria-expanded="false" ng-click="vm.tabChange('open')">Open Orders</a></li>
+				  <li class=""><a href="#cancelled" data-toggle="tab" aria-expanded="false" ng-click="vm.tabChange('cancelled')">Cancelled Orders</a></li>		  
+				</ul>
+				<div id="myTabContent" class="tab-content">
+				  <div class="tab-pane fade active in">
+				    
+				  <div class="row">
+						<div class="col-xs-3">
+		    				<div class="form-group">
+							  <label for="sel1">Orders Placed in:</label>
+							  <select class="form-control input-sm" >
+							    <option selected="" value="all">All</option>
+							    <option value="30d">last 30 days</option>
+							    <option value="3m">last 3 months</option>
+							    <option value="6m">last 6 months</option>
+							    <option value="o6m">Older than 6 months</option>
+							  </select>
+							</div>
+						</div>
+
+				  </div>
+
+					  		<div class="">
+	                            <table class="table table-hover table-striped">
+                                
+                                    <tbody>
+                                        <tr ng-repeat="row in vm.orders | start: (vm.currentPage - 1) * vm.pageSize | limitTo: vm.pageSize | filter: vm.searchParams | filter: vm.search" >      
+                                        <td>
+                                            <h4>Order Placed</h4>
+                                            <p>[[row.orderDate  | date: 'dd-MM-yyyy']]</p>
+                                        </td>
+                                        <td>
+                                        	<h4>Order Total</h4>
+                                            <p>Rs [[row.totalAmount]]</p>
+                                        </td>
+                                        <td>
+                                        	<h4>Store</h4>
+                                            <p>[[row.store.storeName]]</p>
+                                        </td>             
+                                     
+                                                     
+                                           <td width="20%">
+                                           	<h4>[[row.orderId]]</h4>
+                                             <div class="btn-group">
+                                                <a ui-sref="app.orderDetails({id: row.orderId})" type="button" class="btn btn-xs btn-info">Order Details</a>
+                                                <button class="btn btn-xs btn-primary dropdown-toggle" href="javascript:;"
+                                                    data-toggle="dropdown"> <span
+                                                    class="hidden-xs"> Invoice </span> <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li><a href="#">Option 1</a></li>
+												    <li><a href="#">Option 2</a></li>                                                    
+                                                </ul>
+                                            </div>
+
+                                         </td>                                        
+
+                                        </tr>
+                                        <tr>
+                                          <td class="text-center" ng-show="vm.orders.length==0" colspan="6">
+                                              No Data Found.                
+                                          </td>
+                                        </tr>                                                        
+
+
+                                    </tbody>
+                                </table>    
+                            </div>    
+                            <div class="row" ng-if="vm.orders.length > vm.pageSize">   
+                                <div class="col-md-12">
+                                    <pagination total-items="vm.orders.length" items-per-page="vm.pageSize" ng-model="vm.currentPage" ng-change="vm.pageChanged()" max-size="5"  class="pagination-sm pull-right"></pagination>
+                                </div>
+                            </div>    
+
+
+
+
+				  </div>
+				
+				</div>
+
+			</div>
+		</div>	
+
+
+
+
+
+	</div>
+</div>	
